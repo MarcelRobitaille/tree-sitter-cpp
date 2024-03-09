@@ -50,6 +50,11 @@ const ASSIGNMENT_OPERATORS = [
   'xor_eq',
 ];
 
+const MACROS = [
+  'COVERAGE_OFF',
+  'COVERAGE_ON',
+];
+
 module.exports = grammar(C, {
   name: 'cpp',
 
@@ -98,8 +103,11 @@ module.exports = grammar(C, {
   ],
 
   rules: {
+    macro_identifier: $ => choice(...MACROS),
+
     _top_level_item: ($, original) => choice(
       ...original.members.filter((member) => member.content?.name != '_old_style_function_definition'),
+      $.macro_identifier,
       $.namespace_definition,
       $.concept_definition,
       $.namespace_alias_definition,

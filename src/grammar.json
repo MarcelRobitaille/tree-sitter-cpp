@@ -66,6 +66,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "macro_identifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "namespace_definition"
         },
         {
@@ -10729,6 +10733,19 @@
           }
         ]
       }
+    },
+    "macro_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "COVERAGE_OFF"
+        },
+        {
+          "type": "STRING",
+          "value": "COVERAGE_ON"
+        }
+      ]
     },
     "placeholder_type_specifier": {
       "type": "PREC",

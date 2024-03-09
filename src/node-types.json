@@ -3854,6 +3854,11 @@
     }
   },
   {
+    "type": "macro_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "ms_based_modifier",
     "named": true,
     "fields": {},
@@ -6503,6 +6508,10 @@
           "named": true
         },
         {
+          "type": "macro_identifier",
+          "named": true
+        },
+        {
           "type": "namespace_alias_definition",
           "named": true
         },
@@ -7277,6 +7286,14 @@
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "COVERAGE_OFF",
+    "named": false
+  },
+  {
+    "type": "COVERAGE_ON",
     "named": false
   },
   {
