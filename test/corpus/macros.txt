@@ -14,3 +14,48 @@ int bar = 0;
     declarator: (init_declarator
       declarator: (identifier)
       value: (number_literal))))
+
+====================================================
+In function body
+====================================================
+
+int foo() {
+   COVERAGE_OFF
+   int bar = 0;
+}
+
+---
+
+(translation_unit
+  (function_definition
+    type: (primitive_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+        (macro_identifier)
+        (declaration
+          type: (primitive_type)
+          declarator: (init_declarator
+            declarator: (identifier)
+            value: (number_literal))))))
+
+====================================================
+Around if statement
+====================================================
+
+COVERAGE_OFF
+if (something_that_cannot_happen_in_test)
+COVERAGE_ON
+{
+}
+
+---
+
+(translation_unit
+  (macro_identifier)
+  (if_statement
+   condition: (condition_clause
+     value: (identifier))
+   (macro_identifier)
+   consequence: (compound_statement)))
