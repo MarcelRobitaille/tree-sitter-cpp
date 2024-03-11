@@ -56,7 +56,7 @@ const MACROS = [
 ];
 
 module.exports = grammar(C, {
-  name: 'cpp_marcel',
+  name: 'cpp',
 
   externals: $ => [
     $.raw_string_delimiter,
